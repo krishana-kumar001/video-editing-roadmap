@@ -16,7 +16,8 @@ A single-page website that lays out a seven-step path for becoming a professiona
 ## Design and features
 
 - Pure HTML and CSS in one file with a small inline script. No build step, no dependencies.
-- Record-red accent on a deep ink background, with a matching light theme. Both follow the visitor's system setting.
+- Electric violet and cyan accents on a deep indigo background, with a matching light theme. Both follow the visitor's system setting.
+- Large condensed uppercase headlines for every chapter, channel group and card title.
 - Responsive layout that works from phones to wide desktops.
 - Motion: staggered page-load entrance, a moving timeline playhead, staggered scroll reveals, count-up stats, hover effects, section dots and a scroll-linked timecode. All motion is switched off for visitors who prefer reduced motion.
 - Fonts (Archivo, Hanken Grotesk, IBM Plex Mono) load from Google Fonts, with system fallbacks.

@@ -4,22 +4,22 @@ A single-page website that lays out a seven-step path for becoming a professiona
 
 ## What's on the page
 
-- **Hero** with an animated editing-timeline illustration and a quick stats strip (7 steps, 3 skill levels, 23 learning channels, 5–7 portfolio pieces).
-- **Learning resources**: 23 YouTube channels grouped by software basics, intermediate to advanced editing, effects and templates, color and filmmaking, sound and motion, and animation and 3D.
-- **Step 1 – Master design first**: Photoshop and Illustrator fundamentals.
-- **Step 2 – Choose your arsenal**: Premiere Pro + After Effects, or the free DaVinci Resolve + Fusion setup.
-- **Step 3 – Three levels of mastery**: beginner, intermediate and advanced.
-- **Steps 4–5**: find your editing style and build a portfolio of 5–7 best projects.
-- **Steps 6–7**: client acquisition (high-volume platforms vs personal brand) and using AI tools to work faster.
+- **Top bar** with a pulsing REC dot, a live timecode that follows your scroll and a progress line.
+- **Hero** with a large film-title headline, an animated editing-timeline illustration and a stats strip (7 steps, 3 skill levels, 23 learning channels, 5-7 portfolio pieces).
+- **Learning resources**: 23 YouTube channels shown as video-thumbnail cards, grouped by software basics, intermediate to advanced editing, effects and templates, color and filmmaking, sound and motion, and animation and 3D. Each card links to the channel.
+- **Step 1 - Master design first**: Photoshop and Illustrator fundamentals.
+- **Step 2 - Choose your arsenal**: Premiere Pro + After Effects, or the free DaVinci Resolve + Fusion setup.
+- **Step 3 - Three levels of mastery**: beginner, intermediate and advanced.
+- **Steps 4-5**: find your editing style and build a portfolio of 5-7 best projects.
+- **Steps 6-7**: client acquisition (high-volume platforms vs personal brand) and using AI tools to work faster.
 
 ## Design and features
 
-- Pure HTML and CSS in one file, with a few lines of inline SVG for the illustrations. No build step, no dependencies.
-- Light and dark theme that follow the visitor's system setting.
+- Pure HTML and CSS in one file with a small inline script. No build step, no dependencies.
+- Record-red accent on a deep ink background, with a matching light theme. Both follow the visitor's system setting.
 - Responsive layout that works from phones to wide desktops.
-- Smooth motion: staggered page-load entrance, a moving timeline playhead, scroll-based reveals, a scroll progress bar and hover effects. All motion is switched off for visitors who prefer reduced motion.
-- Colored, underlined-on-hover channel links, with a separate accent color for each group.
-- Fonts (Bricolage Grotesque, Instrument Sans, JetBrains Mono) load from Google Fonts, with system fallbacks.
+- Motion: staggered page-load entrance, a moving timeline playhead, staggered scroll reveals, count-up stats, hover effects, section dots and a scroll-linked timecode. All motion is switched off for visitors who prefer reduced motion.
+- Fonts (Archivo, Hanken Grotesk, IBM Plex Mono) load from Google Fonts, with system fallbacks.
 
 ## Project structure
 

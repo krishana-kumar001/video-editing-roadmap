@@ -1,4 +1,4 @@
-# Video Editing Roadmap (2026)
+# Video Editing Roadmap
 
 A single-page website that lays out a seven-step path for becoming a professional video editor: what to learn, which tools to pick, how to grow through three skill levels, and how to find clients.
 
@@ -47,4 +47,4 @@ python3 -m http.server 8000
 
 ## Credits
 
-The roadmap content is based on the Video Editing Roadmap (2026) by [Somrat Dutta](https://www.youtube.com/@somratdutta) and [Aasil Khan](https://www.youtube.com/@aasil_khan_). All credit for the original roadmap goes to them. This repository is a recreated page with its own layout, illustrations and animation.
+The roadmap content is based on the Video Editing Roadmap by [Somrat Dutta](https://www.youtube.com/@somratdutta) and [Aasil Khan](https://www.youtube.com/@aasil_khan_). All credit for the original roadmap goes to them. This repository is a recreated page with its own layout, illustrations and animation.

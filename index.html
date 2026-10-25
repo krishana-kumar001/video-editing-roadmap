@@ -228,6 +228,21 @@ footer a{color:var(--fg)}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
+
+/* layout corrections */
+.row{margin-block:8px}
+.body>.row+.row{margin-top:36px}
+@media (max-width:640px){
+  .hero{padding-block:48px 40px}
+  .timeline{overflow-x:auto;border-radius:16px}
+  .timeline svg{min-width:640px;transform:none!important}
+  .art{aspect-ratio:16/10;max-height:230px;padding:14px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div{padding:14px 16px}
+  .stats dd{font-size:2rem}
+  .row{gap:20px}
+  .body>.row+.row{margin-top:20px}
+}
 </style>
 </head>
 <body>
@@ -275,7 +290,7 @@ html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
     <dl class="stats">
       <div><dt>Steps</dt><dd>7</dd></div>
       <div><dt>Skill levels</dt><dd>3</dd></div>
-      <div><dt>Channels to learn from</dt><dd>23</dd></div>
+      <div><dt>Learning channels</dt><dd>23</dd></div>
       <div><dt>Portfolio pieces</dt><dd>5–7</dd></div>
     </dl>
   </header>

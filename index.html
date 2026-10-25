@@ -163,7 +163,7 @@ section{padding-block:56px;border-top:1px solid var(--line);display:grid;grid-te
   @keyframes stair{from{opacity:.25;transform:translateY(44px) scaleY(.88)}to{opacity:1;transform:none}}
   @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
-  .hero>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) backwards}
   .hero>:nth-child(2){animation-delay:.08s}
   .hero>:nth-child(3){animation-delay:.16s}
   .hero>:nth-child(4){animation-delay:.24s}
@@ -187,18 +187,33 @@ section{padding-block:56px;border-top:1px solid var(--line);display:grid;grid-te
   .art svg{animation:drift 7s ease-in-out infinite}
   .row.flip .art svg{animation-delay:-3s}
 
-  @supports (animation-timeline:view()){
-    .body>*,.group,.card,.panel,.row,.stats div{animation:reveal linear backwards;animation-timeline:view();animation-range:entry 0% entry 55%}
-    .level{animation:stair linear backwards;animation-timeline:view();animation-range:entry 0% entry 65%}
-    .tc{animation:reveal linear backwards;animation-timeline:view();animation-range:entry 0% entry 60%}
-    .progress{animation:fillbar linear both;animation-timeline:scroll(root)}
-    .body>.groups,.body>.pair,.body>.panels,.body>.levels,.body>.people{animation:none}
-  }
-  @supports not (animation-timeline:view()){
-    .progress{display:none}
-  }
 }
 @media (prefers-reduced-motion:reduce){.progress{display:none}}
+/* pro motion layer */
+section{position:relative;scroll-margin-top:16px}
+.stats dd{font-variant-numeric:tabular-nums}
+.spot{position:relative;isolation:isolate}
+.spot::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .35s ease;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),var(--accent-soft),transparent 70%)}
+.spot:hover::before{opacity:1}
+.dots{position:fixed;right:max(18px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:14px;z-index:15}
+@media (min-width:1180px){.dots{display:flex}}
+.dots a{position:relative;display:block;width:10px;height:10px;border-radius:50%;background:var(--surface);border:1px solid var(--muted);transition:transform .3s cubic-bezier(.2,.7,.2,1),background .3s,border-color .3s}
+.dots a:hover{transform:scale(1.35)}
+.dots a.on{background:var(--accent);border-color:var(--accent);transform:scale(1.55)}
+.dots a::after{content:attr(data-label);position:absolute;right:24px;top:50%;transform:translate(6px,-50%);white-space:nowrap;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--fg);color:var(--bg);padding:4px 9px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s,transform .25s cubic-bezier(.2,.7,.2,1)}
+.dots a:hover::after,.dots a:focus-visible::after{opacity:1;transform:translate(0,-50%)}
+@media (prefers-reduced-motion:no-preference){
+  .js .r{opacity:.14;transform:translateY(34px);
+    transition:opacity .9s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+  .js .r.in{opacity:1;transform:none}
+  section::after{content:"";position:absolute;top:-1px;left:0;height:3px;width:0;border-radius:3px;background:var(--accent);transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
+  section.seen::after{width:160px}
+  .level.r{transform:translateY(46px) scaleY(.9);transform-origin:50% 100%}
+  .level.r.in{transform:none}
+}
+
 footer{border-top:1px solid var(--line);padding-block:40px 56px;color:var(--muted);font-size:.9rem;display:grid;gap:6px}
 footer a{color:var(--fg)}
 
@@ -218,6 +233,15 @@ html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
 <body>
 
 <div class="progress" aria-hidden="true"></div>
+<nav class="dots" aria-label="Sections">
+  <a href="#resources" data-label="Learn" aria-label="Learn"></a>
+  <a href="#deep" data-label="Specialise" aria-label="Specialise"></a>
+  <a href="#step1" data-label="Step 1" aria-label="Step 1"></a>
+  <a href="#step2" data-label="Step 2" aria-label="Step 2"></a>
+  <a href="#step3" data-label="Step 3" aria-label="Step 3"></a>
+  <a href="#step45" data-label="Steps 4 to 5" aria-label="Steps 4 to 5"></a>
+  <a href="#step67" data-label="Steps 6 to 7" aria-label="Steps 6 to 7"></a>
+</nav>
 <div class="wrap">
   <header class="hero">
     <span class="mono">Roadmap</span>
@@ -463,5 +487,100 @@ html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
     <span>Recreated from the Video Editing Roadmap by <a href="https://www.youtube.com/@somratdutta">Somrat Dutta</a> and <a href="https://www.youtube.com/@aasil_khan_">Aasil Khan</a>. All credit for the roadmap goes to them.</span>
   </footer>
 </div>
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll progress and hero parallax */
+  var bar=d.querySelector('.progress'),tl=d.querySelector('.timeline svg'),ticking=false;
+  function frame(){
+    var h=root.scrollHeight-innerHeight,y=window.pageYOffset||0;
+    if(bar)bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(tl)tl.style.transform='translateY('+Math.min(y*0.05,24)+'px)';
+    ticking=false;
+  }
+  if(!reduce){
+    addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
+    frame();
+  }
+
+  /* active section dots */
+  var links=[].slice.call(d.querySelectorAll('.dots a'));
+  if('IntersectionObserver' in window&&links.length){
+    var nio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting)return;
+        links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)});
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(function(a){var s=d.querySelector(a.getAttribute('href'));if(s)nio.observe(s)});
+  }
+
+  /* hover spotlight and magnetic button */
+  if(!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+    d.querySelectorAll('.card,.group,.stats div').forEach(function(el){
+      el.classList.add('spot');
+      el.addEventListener('pointermove',function(e){
+        var r=el.getBoundingClientRect();
+        el.style.setProperty('--mx',(e.clientX-r.left)+'px');
+        el.style.setProperty('--my',(e.clientY-r.top)+'px');
+      });
+    });
+    var cta=d.querySelector('.cta');
+    if(cta){
+      cta.addEventListener('pointermove',function(e){
+        var r=cta.getBoundingClientRect();
+        cta.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)';
+      });
+      cta.addEventListener('pointerleave',function(){cta.style.transform=''});
+    }
+  }
+
+  if(reduce||!('IntersectionObserver' in window))return;
+  root.classList.add('js');
+
+  /* staggered scroll reveal */
+  var sel='section .tc,section .body>h2,section .body>.lead,section .body>.closing,section .group,section .card,section .level,section .panel,section .row';
+  var els=[].slice.call(d.querySelectorAll(sel));
+  els.forEach(function(el){
+    var sibs=[].filter.call(el.parentNode.children,function(c){return c.matches(sel)});
+    el.style.setProperty('--d',(Math.max(0,sibs.indexOf(el))*0.1)+'s');
+    el.classList.add('r');
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target;io.unobserve(el);el.classList.add('in');
+      var delay=parseFloat(el.style.getPropertyValue('--d'))||0;
+      setTimeout(function(){el.classList.remove('r','in');el.style.removeProperty('--d')},(delay+0.9)*1000+250);
+    });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el)});
+
+  /* accent line on each section */
+  var so=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');so.unobserve(e.target)}});
+  },{threshold:.08});
+  d.querySelectorAll('section').forEach(function(s){so.observe(s)});
+
+  /* count-up numbers */
+  var nums=[].slice.call(d.querySelectorAll('.stats dd')).filter(function(n){return /^\d+$/.test(n.textContent.trim())});
+  function count(n){
+    var to=+n.dataset.to,t0=null,dur=1400;
+    function f(t){
+      if(!t0)t0=t;
+      var p=Math.min(1,(t-t0)/dur);
+      n.textContent=Math.round(to*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(f);
+    }
+    requestAnimationFrame(f);
+  }
+  var co=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){co.unobserve(e.target);count(e.target)}});
+  },{threshold:.6});
+  nums.forEach(function(n){n.dataset.to=n.textContent.trim();n.textContent='0';co.observe(n)});
+})();
+</script>
 </body>
 </html>

@@ -4,24 +4,23 @@ A single-page website that lays out a seven-step path for becoming a professiona
 
 ## What's on the page
 
-- **Cover** with a large serif title, a short deck and a figure of a four-track editing timeline.
-- **Contents list** that links to every chapter.
-- **A - Learn**: 10 YouTube channels in a ruled index, grouped by software basics, intermediate to advanced editing, and effects and templates.
-- **B - Specialise**: 13 more channels grouped by color and filmmaking, sound and motion, and animation and 3D. Every row links to the channel.
-- **Step 01 - Master design first**: Photoshop and Illustrator fundamentals, with three small figures.
-- **Step 02 - Choose your arsenal**: Premiere Pro + After Effects, or the free DaVinci Resolve + Fusion setup.
-- **Step 03 - Three levels of mastery**: beginner, intermediate and advanced.
-- **Steps 04-05**: find your editing style and build a portfolio of 5-7 best projects.
-- **Steps 06-07**: client acquisition (high-volume platforms vs personal brand) and using AI tools to work faster.
+- **Top bar** with a pulsing REC dot and a scroll progress line.
+- **Hero** with a large film-title headline, an animated editing-timeline illustration.
+- **Learning resources**: 23 YouTube channels shown as video-thumbnail cards, grouped by software basics, intermediate to advanced editing, effects and templates, color and filmmaking, sound and motion, and animation and 3D. Each card links to the channel.
+- **Step 1 - Master design first**: Photoshop and Illustrator fundamentals.
+- **Step 2 - Choose your arsenal**: Premiere Pro + After Effects, or the free DaVinci Resolve + Fusion setup.
+- **Step 3 - Three levels of mastery**: beginner, intermediate and advanced.
+- **Steps 4-5**: find your editing style and build a portfolio of 5-7 best projects.
+- **Steps 6-7**: client acquisition (high-volume platforms vs personal brand) and using AI tools to work faster.
 
-## Design
+## Design and features
 
-- Editorial magazine layout: Bodoni Moda headlines, Newsreader body text and IBM Plex Mono labels.
-- Off-white paper with black ink and a single orange accent. A matching black dark theme. Both follow the visitor's system setting.
-- Ruled chapter headers, figures with captions and a ruled channel index instead of cards.
-- Responsive from phones to wide desktops.
-- Motion is kept quiet: the title lifts in line by line, a rule draws across the cover, the timeline playhead sweeps, sections fade in on scroll and rows shift on hover. All motion is switched off for visitors who prefer reduced motion.
-- Fonts load from Google Fonts, with Georgia and system fallbacks.
+- Pure HTML and CSS in one file with a small inline script. No build step, no dependencies.
+- Record-red accent on a clean light background, with a matching deep-ink dark theme. Both follow the visitor's system setting.
+- Large condensed uppercase headlines for every chapter, channel group and card title.
+- Responsive layout that works from phones to wide desktops.
+- Motion: staggered page-load entrance, a moving timeline playhead, soft scroll reveals and hover effects. All motion is switched off for visitors who prefer reduced motion.
+- Fonts (Archivo, Hanken Grotesk, IBM Plex Mono) load from Google Fonts, with system fallbacks.
 
 ## Project structure
 

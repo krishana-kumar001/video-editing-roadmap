@@ -261,6 +261,50 @@ footer{padding-block:56px 72px}
   .body>.row+.row{margin-top:36px}
   .card{padding:24px}
 }
+
+/* calm layout: fewer layers, single column, sentence-case headings */
+.wrap{max-width:960px}
+body{font-size:18px;line-height:1.7}
+.dots{display:none!important}
+.tcode{display:none}
+.hero{padding-block:72px 64px;gap:30px}
+.hero h1{font-size:clamp(2.8rem,9vw,6rem);line-height:.92}
+section{grid-template-columns:minmax(0,1fr);gap:18px;padding-block:88px}
+.tc{position:static;display:flex;align-items:baseline;gap:14px;padding:0}
+.tc b{font-size:1.1rem;font-stretch:100%;font-weight:800;color:var(--accent);-webkit-text-stroke:0;line-height:1}
+.tc .mono{margin:0}
+section::after{display:none}
+.body{gap:40px;max-width:none}
+.body h2{font-stretch:100%;text-transform:none;font-weight:800;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.12;letter-spacing:-.02em;max-width:22ch}
+.lead2{max-width:60ch}
+.cg-h{border-bottom:1px solid var(--line);padding-bottom:14px}
+.cg-h .gn{display:none}
+.cg-h h3{font-stretch:100%;text-transform:none;font-weight:700;font-size:1.4rem;line-height:1.2;letter-spacing:-.01em}
+.cg-h .ct{font-size:.72rem}
+.chgrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:34px 24px}
+.cover::before{display:none}
+.cover{border-radius:10px}
+.tag,.go{display:none}
+.ini{font-size:2.3rem;left:16px}
+.play{width:28px;height:28px;right:10px;bottom:10px}
+.play::before{margin-left:2px;border-left-width:8px;border-top-width:5px;border-bottom-width:5px}
+.nm{font-size:1rem}
+.card h3,.level h3,.row h3{font-stretch:100%;text-transform:none;letter-spacing:-.015em}
+.card h3{font-size:1.4rem}
+.level h3{font-size:1.6rem}
+.row h3{font-size:clamp(1.6rem,3.2vw,2rem)}
+.art svg{animation:none}
+.art:hover svg,.panel:hover svg{transform:none}
+.spot::before{display:none}
+.js .r{transform:translateY(16px)}
+@media (max-width:560px){
+  .chgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:28px 14px}
+  section{padding-block:64px}
+  .body{gap:32px}
+  .cg-h{flex-wrap:nowrap;align-items:baseline;gap:12px}
+  .cg-h h3{flex:1;flex-basis:auto;order:0;font-size:1.25rem}
+  .cg-h .ct{margin-left:0}
+}
 </style>
 </head>
 <body>
@@ -307,12 +351,6 @@ footer{padding-block:56px 72px}
         <g class="playhead"><path d="M455 8v236" stroke="var(--fg)" stroke-width="2"/><path d="M446 8h18l-9 12z" fill="var(--fg)"/></g>
       </svg>
     </div>
-    <dl class="stats">
-      <div><dt>Steps</dt><dd>7</dd></div>
-      <div><dt>Skill levels</dt><dd>3</dd></div>
-      <div><dt>Learning channels</dt><dd>23</dd></div>
-      <div><dt>Portfolio pieces</dt><dd>5–7</dd></div>
-    </dl>
   </div>
 
   <section id="resources">

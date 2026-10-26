@@ -4,8 +4,8 @@ A single-page website that lays out a seven-step path for becoming a professiona
 
 ## What's on the page
 
-- **Top bar** with a pulsing REC dot, a live timecode that follows your scroll and a progress line.
-- **Hero** with a large film-title headline, an animated editing-timeline illustration and a stats strip (7 steps, 3 skill levels, 23 learning channels, 5-7 portfolio pieces).
+- **Top bar** with a pulsing REC dot and a scroll progress line.
+- **Hero** with a large film-title headline, an animated editing-timeline illustration.
 - **Learning resources**: 23 YouTube channels shown as video-thumbnail cards, grouped by software basics, intermediate to advanced editing, effects and templates, color and filmmaking, sound and motion, and animation and 3D. Each card links to the channel.
 - **Step 1 - Master design first**: Photoshop and Illustrator fundamentals.
 - **Step 2 - Choose your arsenal**: Premiere Pro + After Effects, or the free DaVinci Resolve + Fusion setup.
@@ -19,7 +19,7 @@ A single-page website that lays out a seven-step path for becoming a professiona
 - Record-red accent on a clean light background, with a matching deep-ink dark theme. Both follow the visitor's system setting.
 - Large condensed uppercase headlines for every chapter, channel group and card title.
 - Responsive layout that works from phones to wide desktops.
-- Motion: staggered page-load entrance, a moving timeline playhead, staggered scroll reveals, count-up stats, hover effects, section dots and a scroll-linked timecode. All motion is switched off for visitors who prefer reduced motion.
+- Motion: staggered page-load entrance, a moving timeline playhead, soft scroll reveals and hover effects. All motion is switched off for visitors who prefer reduced motion.
 - Fonts (Archivo, Hanken Grotesk, IBM Plex Mono) load from Google Fonts, with system fallbacks.
 
 ## Project structure

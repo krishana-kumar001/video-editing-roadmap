@@ -16,7 +16,7 @@ A single-page website that lays out a seven-step path for becoming a professiona
 ## Design and features
 
 - Pure HTML and CSS in one file with a small inline script. No build step, no dependencies.
-- Royal-blue accent on a clean white background, with a matching deep-navy dark theme. Both follow the visitor's system setting.
+- Record-red accent on a clean light background, with a matching deep-ink dark theme. Both follow the visitor's system setting.
 - Large condensed uppercase headlines for every chapter, channel group and card title.
 - Responsive layout that works from phones to wide desktops.
 - Motion: staggered page-load entrance, a moving timeline playhead, staggered scroll reveals, count-up stats, hover effects, section dots and a scroll-linked timecode. All motion is switched off for visitors who prefer reduced motion.
